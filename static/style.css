@@ -13,13 +13,19 @@ Abschnitte im Stylesheet
 
 /* 1. Grundeinstellungen */
 
-* {outline: 1px solid red;} 
+/* {outline: 1px solid red;} 
+    Das sind Linien zur Orientierung
+*/
 
 @font-face{font-family:'Lato';font-style:normal;font-weight:300;src:local('Lato Light'), local('Lato-Light'), url(https://kms-a.akamaihd.net/dc-1/5.109.67.232/public/build0/v2ui/asset/font/kU6VHbqMAZhaN_nXCmLQsQ.woff) format('woff'), url(https://kms-a.akamaihd.net/dc-1/5.109.67.232/public/build0/v2ui/asset/font/dPJ5r9gl3kK6ijoeP1IRsvY6323mHUZFJMgTvxaG2iE.woff2) format('woff2')}@font-face{font-family:'Lato';font-style:normal;font-weight:300;src:local('Lato Light'), local('Lato-Light'), url(https://kms-a.akamaihd.net/dc-1/5.109.67.232/public/build0/v2ui/asset/font/EsvMC5un3kjyUhB9ZEPPwg.woff2) format('woff2')}@font-face{font-family:'Lato';font-style:normal;font-weight:400;src:local('Lato Regular'), local('Lato-Regular'), url(https://kms-a.akamaihd.net/dc-1/5.109.67.232/public/build0/v2ui/asset/font/1bHRUMxmJHoup12DnI9XmQ.woff) format('woff'), url(https://kms-a.akamaihd.net/dc-1/5.109.67.232/public/build0/v2ui/asset/font/UyBMtLsHKBKXelqf4x7VRQ.woff2) format('woff2')}@font-face{font-family:'Lato';font-style:normal;font-weight:400;src:local('Lato Regular'), local('Lato-Regular'), url(https://kms-a.akamaihd.net/dc-1/5.109.67.232/public/build0/v2ui/asset/font/1YwB1sO8YE1Lyjf12WNiUA.woff2) format('woff2')}@font-face{font-family:'Lato';font-style:normal;font-weight:700;src:local('Lato Bold'), local('Lato-Bold'), url(https://kms-a.akamaihd.net/dc-1/5.109.67.232/public/build0/v2ui/asset/font/I1Pn3gihk5vyP0Yw5GqKsQ.woff) format('woff'), url(https://kms-a.akamaihd.net/dc-1/5.109.67.232/public/build0/v2ui/asset/font/ObQr5XYcoH0WBoUxiaYK3_Y6323mHUZFJMgTvxaG2iE.woff2) format('woff2')}@font-face{font-family:'Lato';font-style:normal;font-weight:700;src:local('Lato Bold'), local('Lato-Bold'), url(https://kms-a.akamaihd.net/dc-1/5.109.67.232/public/build0/v2ui/asset/font/H2DMvhDLycM56KNuAtbJYA.woff2) format('woff2')}
 
 body {  
     font-family: 'Lato';
-    background-color: black;   
+    background-color: #000000;   
+    width: 	415px;
+    height: 450px;
+    margin: 0px;
+    padding: 10px;
     } 
 
 /* 2. Layoutbereiche */
@@ -34,11 +40,13 @@ footer {
 
 .container {   
     font-family: 'Lato';
-    margin-left: 80px;
-    margin-right: 80px;
+    width: 	355px;
+    height: 420px;
+    margin: 10px;
     padding: 20px;   
-    background-color: #F1F2F6;  
+    background-color: #FFF;  
     border-radius: 8px;
+    max-width: 400px;
     } 
 
 .containerlogin {   
@@ -53,7 +61,7 @@ footer {
 .containerklein {
     font-family: 'Lato';
     padding: 20px;   
-    background-color: #FFF;  
+    background-color: #ffffff;  
     border-radius: 8px;
 }
 
@@ -76,7 +84,7 @@ a[type=button] {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    margin: 4px 2px;
+    margin-left: 26px;
     cursor: pointer;
     }   
     
@@ -111,12 +119,12 @@ li[type=Navigation] {
 h1 {
     font-family: 'Lato';
     background-color: white;
-    margin: 1px;
-    margin-bottom: 20px;
-    padding: 25px;
+    margin: 2px 0px;
+    padding: 2px;
     font-size: 25px;
     font-weight: 950;
     border-radius: 8px;
+    text-align: center;
 }
 
 h2 {   
@@ -136,7 +144,7 @@ link {
 /* 5. Formulare */
 
 form {   
-     border: #000000;   
+     border: none;   
  }
 
 input[type=text], input[type=password] {   

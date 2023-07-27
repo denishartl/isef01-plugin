@@ -1,10 +1,16 @@
 {
-    "name": "Exchange Rates",
+    "name": "IU Ticket System",
     "version": "1.0",
     "manifest_version": 3,
     "description": "This Plugin helps you creating a ticket in the IU ticket system.",
-    "browser_action": {
-        "default_icon": "icon.png", 
+    "icons":{
+        "16": "static/logo16.png", 
+        "48": "static/logo48.png",
+        "128": "static/logo128.png"
+
+    },
+    "action": {
+        "default_icon": "static/logo16.png", 
         "default_popup": "index.html"
     }
 }
