@@ -17,13 +17,21 @@ Abschnitte im Stylesheet
     Das sind Linien zur Orientierung
 */
 
+/* Reset default margin and padding for body. Background color. Borders. */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    border-radius: 20px;
+  }
+  
+
 @font-face{font-family:'Lato';font-style:normal;font-weight:300;src:local('Lato Light'), local('Lato-Light'), url(https://kms-a.akamaihd.net/dc-1/5.109.67.232/public/build0/v2ui/asset/font/kU6VHbqMAZhaN_nXCmLQsQ.woff) format('woff'), url(https://kms-a.akamaihd.net/dc-1/5.109.67.232/public/build0/v2ui/asset/font/dPJ5r9gl3kK6ijoeP1IRsvY6323mHUZFJMgTvxaG2iE.woff2) format('woff2')}@font-face{font-family:'Lato';font-style:normal;font-weight:300;src:local('Lato Light'), local('Lato-Light'), url(https://kms-a.akamaihd.net/dc-1/5.109.67.232/public/build0/v2ui/asset/font/EsvMC5un3kjyUhB9ZEPPwg.woff2) format('woff2')}@font-face{font-family:'Lato';font-style:normal;font-weight:400;src:local('Lato Regular'), local('Lato-Regular'), url(https://kms-a.akamaihd.net/dc-1/5.109.67.232/public/build0/v2ui/asset/font/1bHRUMxmJHoup12DnI9XmQ.woff) format('woff'), url(https://kms-a.akamaihd.net/dc-1/5.109.67.232/public/build0/v2ui/asset/font/UyBMtLsHKBKXelqf4x7VRQ.woff2) format('woff2')}@font-face{font-family:'Lato';font-style:normal;font-weight:400;src:local('Lato Regular'), local('Lato-Regular'), url(https://kms-a.akamaihd.net/dc-1/5.109.67.232/public/build0/v2ui/asset/font/1YwB1sO8YE1Lyjf12WNiUA.woff2) format('woff2')}@font-face{font-family:'Lato';font-style:normal;font-weight:700;src:local('Lato Bold'), local('Lato-Bold'), url(https://kms-a.akamaihd.net/dc-1/5.109.67.232/public/build0/v2ui/asset/font/I1Pn3gihk5vyP0Yw5GqKsQ.woff) format('woff'), url(https://kms-a.akamaihd.net/dc-1/5.109.67.232/public/build0/v2ui/asset/font/ObQr5XYcoH0WBoUxiaYK3_Y6323mHUZFJMgTvxaG2iE.woff2) format('woff2')}@font-face{font-family:'Lato';font-style:normal;font-weight:700;src:local('Lato Bold'), local('Lato-Bold'), url(https://kms-a.akamaihd.net/dc-1/5.109.67.232/public/build0/v2ui/asset/font/H2DMvhDLycM56KNuAtbJYA.woff2) format('woff2')}
 
 body {  
-    font-family: 'Lato';
-    background-color: #000000;   
+    font-family: 'Lato'; 
     width: 	415px;
-    height: 450px;
+    height: auto;
     margin: 0px;
     padding: 10px;
     } 
@@ -41,17 +49,16 @@ footer {
 .container {   
     font-family: 'Lato';
     width: 	355px;
-    height: 420px;
-    margin: 10px;
+    margin: 10px auto;
     padding: 20px;   
     background-color: #FFF;  
-    border-radius: 8px;
+    border-radius: 10px;
     max-width: 400px;
     } 
 
 .containerlogin {   
     font-family: 'Lato';
-    margin: 80px;
+    margin: 80px auto;
     padding: 20px; 
     width: 550px;  
     background-color: #FFFF;  
@@ -62,7 +69,7 @@ footer {
     font-family: 'Lato';
     padding: 20px;   
     background-color: #ffffff;  
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 div[type=Meldung] {
