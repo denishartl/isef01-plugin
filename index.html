@@ -1,10 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
 <head>
-    <title>IU Ticketsystem</title>
-    <script src="ticket_system.js"></script>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <title>IU Ticketsystem</title>
+  <link rel="stylesheet" href="static\style.css">
+  <link rel="icon"href="static\favicon_iu_logo.ico">
 </head>
+
+
 <body>
-    
+  <header>
+      <img type="Logo" src="static\IU-logo.svg">
+  </header>
+  <main>
+    <div class="container">
+      <h1>NEUE MELDUNG ERSTELLEN</h1>
+      
+      <div class="containerklein">
+
+        <form method="post" action="hello">
+
+          <div type="Meldung">
+            <label type="description" for="course">Kurs</label>
+            <input type="text" placeholder="Name des Kurses" name="course" id="course" required>
+          </div> 
+
+          <div type="Meldung">
+            <label type="description" for="documenttype">Dokumentenart</label>
+              <div class="select">
+                <select type="ticket" name="documenttype" id="documenttype" required>
+                  <option hidden> </option>
+                  <option value="Fragen">Fragen</option>
+                  <option value="Literaturangaben">Literaturangaben</option>
+                  <option value="Lösungsheft">Lösungsheft</option>
+                  <option value="Skript">Skript</option>
+                  <option value="Tutorium">Tutorium</option>
+                  <option value="Vodcast">Vodcast</option>
+                  <option value="Sonstiges">Sonstiges</option>
+                </select>
+              </div>
+            </div>  
+
+            <div type="Meldung">
+              <label type="description" for="title">Dokumententitel</label>
+              <input type="text" placeholder="Name des Dokuments" name="title" id="title" required>
+            </div>  
+
+            <div type="Meldung">
+            <label type="description" for="tickettype">Meldungsart</label>
+              <div class="select">
+                <select type="ticket"  name="tickettype" id="tickettype" required>
+                  <option hidden> </option>
+                  <option value="Ergänzung">Ergänzung</option>
+                  <option value="Fehler">Fehler</option>
+                  <option value="Verbesserungsvorschlag">Verbesserungsvorschlag</option>
+                </select>
+              </div>
+            </div>  
+
+            <div type="Meldung">
+              <label type="description" for="description">Beschreibung</label>
+              <textarea name="description" id="description" required cols="50" rows="4"></textarea>
+            </div>  
+
+            <div type="Meldung"></div>
+              <label for="attachment"> </label>
+              <input type="file" id="attachment" name="attachment" accept="image/png, image/jpeg, .pdf">
+            </div>  
+
+            <a type="button">Absenden</a>  
+          </form>
+        </div>
+      </div>
+    </main>
+
 </body>
+
+
 </html>

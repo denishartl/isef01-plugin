@@ -1,0 +1,239 @@
+/* 
+
+Abschnitte im Stylesheet
+
+1. Grundeinstellungen
+2. Layoutbereiche
+3. Navigation
+4. Inhalte
+5. Formulare
+6. Tabellen
+*/
+
+
+/* 1. Grundeinstellungen */
+
+/* {outline: 1px solid red;} 
+    Das sind Linien zur Orientierung
+*/
+
+/* Reset default margin and padding for body. Background color. Borders. */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000000;
+    border-radius: 20px;
+  }
+  
+
+@font-face{font-family:'Lato';font-style:normal;font-weight:300;src:local('Lato Light'), local('Lato-Light'), url(https://kms-a.akamaihd.net/dc-1/5.109.67.232/public/build0/v2ui/asset/font/kU6VHbqMAZhaN_nXCmLQsQ.woff) format('woff'), url(https://kms-a.akamaihd.net/dc-1/5.109.67.232/public/build0/v2ui/asset/font/dPJ5r9gl3kK6ijoeP1IRsvY6323mHUZFJMgTvxaG2iE.woff2) format('woff2')}@font-face{font-family:'Lato';font-style:normal;font-weight:300;src:local('Lato Light'), local('Lato-Light'), url(https://kms-a.akamaihd.net/dc-1/5.109.67.232/public/build0/v2ui/asset/font/EsvMC5un3kjyUhB9ZEPPwg.woff2) format('woff2')}@font-face{font-family:'Lato';font-style:normal;font-weight:400;src:local('Lato Regular'), local('Lato-Regular'), url(https://kms-a.akamaihd.net/dc-1/5.109.67.232/public/build0/v2ui/asset/font/1bHRUMxmJHoup12DnI9XmQ.woff) format('woff'), url(https://kms-a.akamaihd.net/dc-1/5.109.67.232/public/build0/v2ui/asset/font/UyBMtLsHKBKXelqf4x7VRQ.woff2) format('woff2')}@font-face{font-family:'Lato';font-style:normal;font-weight:400;src:local('Lato Regular'), local('Lato-Regular'), url(https://kms-a.akamaihd.net/dc-1/5.109.67.232/public/build0/v2ui/asset/font/1YwB1sO8YE1Lyjf12WNiUA.woff2) format('woff2')}@font-face{font-family:'Lato';font-style:normal;font-weight:700;src:local('Lato Bold'), local('Lato-Bold'), url(https://kms-a.akamaihd.net/dc-1/5.109.67.232/public/build0/v2ui/asset/font/I1Pn3gihk5vyP0Yw5GqKsQ.woff) format('woff'), url(https://kms-a.akamaihd.net/dc-1/5.109.67.232/public/build0/v2ui/asset/font/ObQr5XYcoH0WBoUxiaYK3_Y6323mHUZFJMgTvxaG2iE.woff2) format('woff2')}@font-face{font-family:'Lato';font-style:normal;font-weight:700;src:local('Lato Bold'), local('Lato-Bold'), url(https://kms-a.akamaihd.net/dc-1/5.109.67.232/public/build0/v2ui/asset/font/H2DMvhDLycM56KNuAtbJYA.woff2) format('woff2')}
+
+body {  
+    font-family: 'Lato'; 
+    width: 	415px;
+    height: auto;
+    margin: 0px;
+    padding: 10px;
+    } 
+
+/* 2. Layoutbereiche */
+
+header {
+    height: 40px;
+    }
+
+footer {
+    height: 40px;
+}
+
+.container {   
+    font-family: 'Lato';
+    width: 	355px;
+    margin: 10px auto;
+    padding: 20px;   
+    background-color: #FFF;  
+    border-radius: 10px;
+    max-width: 400px;
+    } 
+
+.containerlogin {   
+    font-family: 'Lato';
+    margin: 80px auto;
+    padding: 20px; 
+    width: 550px;  
+    background-color: #FFFF;  
+    border-radius: 8px;
+    } 
+
+.containerklein {
+    font-family: 'Lato';
+    padding: 20px;   
+    background-color: #ffffff;  
+    border-radius: 10px;
+}
+
+div[type=Meldung] {
+    padding-top: 5px;
+
+}
+
+/* 3. Navigation */
+
+a[type=button] {   
+    font-family: 'Lato';
+    font-weight: bold;
+    background-color: #7297EB;
+    border: none; 
+    border-radius: 6px;  
+    color: white;   
+    cursor: pointer; 
+    padding: 5px 120px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 26px;
+    cursor: pointer;
+    }   
+    
+a[type=buttonfull] {   
+        font-family: 'Lato';
+        font-weight: bold;
+        background-color: #7297EB;
+        border: none; 
+        border-radius: 6px;  
+        color: white;   
+        cursor: pointer; 
+        padding: 5px 235px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+    }   
+
+a:hover {   
+    background-color: #C3D8FF; 
+    color: #4374E4;
+        } 
+
+li[type=Navigation] {
+    color: white;
+
+}
+
+/* 4. Inhalte */
+
+h1 {
+    font-family: 'Lato';
+    background-color: white;
+    margin: 2px 0px;
+    padding: 2px;
+    font-size: 25px;
+    font-weight: 950;
+    border-radius: 8px;
+    text-align: center;
+}
+
+h2 {   
+    font-weight: lighter;  
+    font-size: 1.3em;  
+} 
+
+img[type=Logo]{
+    height: 40px;
+}
+
+link {
+    color: 7297EB;
+
+ }
+
+/* 5. Formulare */
+
+form {   
+     border: none;   
+ }
+
+input[type=text], input[type=password] {   
+    font-family: 'Lato';
+    font-size: 16px;
+    width: 100%; 
+    border-radius: 5px; 
+    box-sizing: border-box;
+    color: #000;  
+    padding-left: 15px; 
+    padding-top: 5px; 
+    padding-bottom: 5px; 
+    border-style:solid;
+  
+ }  
+ 
+ label[type=description]{
+    padding-left: 5px;
+    background-color: #FFF;
+    font-weight: 900;                      
+ }
+ 
+ .form-box {
+    padding: 10px;
+    width: 100%;
+}
+
+select[type=ticket] {
+    font-family: 'Lato';
+    font-size: 16px;
+    border-radius: 5px;  
+    width: 100%;
+    padding-top: 5px; 
+    padding-bottom: 5px; 
+    border-style:solid;
+}
+
+textarea {
+    width: 100%;
+    border-radius: 5px; 
+    padding-top: 5px; 
+    padding-bottom: 5px;
+    border-style:solid;  
+}
+
+/* 6. Tabellen */
+
+Table[type=Meldungen] {
+    font-family: 'Lato';
+    padding-top: 15px;
+    font-size: 15px;
+    width: 100%;
+    border: none;
+}
+
+Table[type=Meldungen] tr:hover {
+    color: #4374E4;
+}
+
+Table[type=Username] {
+    font-family: 'Lato';
+    font-size: 15px;
+    width: 100%;
+    border: none;
+}
+
+th {
+    text-align: left;
+    color: #666666;
+    font-size: 18px;
+    font-weight: 950;
+    border-bottom: 2px solid #666666;
+    padding-bottom: 3px;
+}
+
+table {   
+    margin-top: 10px;
+    width: 100%; 
+    border: black;  
+ } 
+
+td[type=right] {   
+     text-align: right;   
+ } 
+
