@@ -21,7 +21,9 @@
 
           <div type="Meldung">
             <label type="description" for="course">Kurs</label>
-            <input type="text" placeholder="Name des Kurses" name="course" id="course" required>
+            <div class="select">
+              <select type="ticket" name="course" id="course" required>
+              </select>
           </div> 
 
           <div type="Meldung">
@@ -32,9 +34,9 @@
                   <option value="Fragen">Fragen</option>
                   <option value="Literaturangaben">Literaturangaben</option>
                   <option value="Lösungsheft">Lösungsheft</option>
-                  <option value="Skript">Skript</option>
+                  <option value="Script">Skript</option>
                   <option value="Tutorium">Tutorium</option>
-                  <option value="Vodcast">Vodcast</option>
+                  <option value="Video">Video</option>
                   <option value="Sonstiges">Sonstiges</option>
                 </select>
               </div>
@@ -42,7 +44,11 @@
 
             <div type="Meldung">
               <label type="description" for="title">Dokumententitel</label>
-              <input type="text" placeholder="Name des Dokuments" name="title" id="title" required>
+              <div class="select">
+                <select type="ticket" name="title" id="title" required>
+                </select>
+              </div>
+            </div>  
             </div>  
 
             <div type="Meldung">
@@ -72,7 +78,7 @@
         </div>
       </div>
     </main>
-
+    <script src="popup.js"></script>
 </body>
 
 
