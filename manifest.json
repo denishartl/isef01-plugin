@@ -15,7 +15,7 @@
     },
     "action": {
         "default_icon": "static/logo16.png", 
-        "default_popup": "index.html"
+        "default_popup": "login.html"
     },
     "host_permissions": [
         "https://iu-isef01-functionapp.azurewebsites.net/*",
