@@ -94,27 +94,33 @@ a[type=button] {
     margin-left: 26px;
     cursor: pointer;
     }   
-    
-a[type=buttonfull] {   
-        font-family: 'Lato';
-        font-weight: bold;
-        background-color: #7297EB;
-        border: none; 
-        border-radius: 6px;  
-        color: white;   
-        cursor: pointer; 
-        padding: 5px 235px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        margin: 4px 2px;
-        cursor: pointer;
-    }   
 
-a:hover {   
+a[type=submit] {   
+    font-family: 'Lato';
+    font-weight: bold;
+    background-color: #7297EB;
+    border: none; 
+    border-radius: 6px;  
+    color: white;   
+    cursor: pointer; 
+    padding: 5px 120px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-left: 26px;
+    cursor: pointer;
+    } 
+
+a[type=submit]:hover {   
     background-color: #C3D8FF; 
     color: #4374E4;
-        } 
+    } 
+
+.error {
+    font-size: 1.3em;  
+    font-weight: bold;
+    color: red;
+}
 
 li[type=Navigation] {
     color: white;

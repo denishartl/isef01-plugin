@@ -6,29 +6,31 @@
   </head>  
 
 
-  <body>    
+  <body>
     <div class="container">
     <center> <img src="static\logo128.png" width="120px"/> </center> 
     <center> <h1> WILLKOMMEN </h1> </center> 
     <center> <h2> Melde Dich bei der IU - Internationale Hochschule an um fortzufahren. </h2> </center>   
-      <form>  
+      <form id="loginform" action="main.html" method="post">  
         <div class="containerklein">   
           <div type="Meldung">  
             <label type="description">Benutzername </label>   
-            <input type="text" placeholder="Benutzername eingeben" name="username" required>  
+            <input type="text" placeholder="Benutzername eingeben" name="username" id="username" required>  
           </div>   
           <div type="Meldung">
             <label type="description">Passwort </label>   
-            <input type="password" placeholder="Passwort eingeben" name="password" required> 
+            <input type="password" placeholder="Passwort eingeben" name="password" id="password" required> 
           </div> 
             <table type="username"> 
               <tr>  
                 <td><input type="checkbox"> Benutzername merken </td>
                 <td type="right"><a href="#"> Passwort vergessen? </a> </td> 
               </tr>
-            </table> 		   
-            <a type="button">Login</a>   
+            </table>    
         </div>   
-      </form>  
-    </div>   
+        <label class="error" hidden="true" id="error">Error goes here!</label>	
+      </form> 
+      <a type="submit" form="loginform" value="Submit" id="loginsubmit">Login</a> 
+    </div>
+    <script src="login.js"></script>   
   </body>     
