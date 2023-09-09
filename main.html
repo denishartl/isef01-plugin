@@ -17,7 +17,7 @@
       
       <div class="containerklein">
 
-        <form method="post" action="hello">
+        <form method="post" action="hello" id="form">
 
           <div type="Meldung">
             <label type="description" for="course">Kurs</label>
@@ -71,10 +71,11 @@
             <div type="Meldung"></div>
               <label for="attachment"> </label>
               <input type="file" id="attachment" name="attachment" accept="image/png, image/jpeg, .pdf">
-            </div>  
-
-            <a type="button">Absenden</a>  
+            </div> 
+            <label class="error" hidden="true" id="error">Error goes here!</label>
+            <label class="success" hidden="true" id="success">Success goes here!</label>
           </form>
+          <a type="submit" form="form" value="Submit" id="submit">Absenden</a> 
         </div>
       </div>
     </main>
