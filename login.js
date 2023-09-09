@@ -6,13 +6,13 @@ async function getUser(user_id) {
 }
 
 function printError(message) {
-    document.getElementById('error').innerHTML=message;
-    document.getElementById('error').hidden=false;
+    document.getElementById('error').innerHTML = message;
+    document.getElementById('error').hidden = false;
 }
 
 
 document.getElementById('loginsubmit').addEventListener('click', async function () {
-    document.getElementById('error').hidden=true;
+    document.getElementById('error').hidden = true;
     if (document.getElementById('username').value != "") {
         if (document.getElementById('password').value != "") {
             try {
@@ -29,9 +29,6 @@ document.getElementById('loginsubmit').addEventListener('click', async function 
             else {
                 printError("Passwort falsch!")
             }
-
-
-            // User-ID dann auch in localStorage speichern
         }
         else {
             printError("Bitte Passwort eingeben!")
@@ -40,6 +37,6 @@ document.getElementById('loginsubmit').addEventListener('click', async function 
     else {
         printError("Bitte Benutzernamen eingeben!")
     };
-    
+
 
 });
