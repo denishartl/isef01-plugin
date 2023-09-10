@@ -117,6 +117,7 @@ document.getElementById('title').addEventListener('clear', function () {
 })
 
 document.getElementById('title').addEventListener('change', async function () {
+
     var course_document = await getDocumentFromLocalStorageCourses(document.getElementById('title').value);
     localStorage.setItem('document_id', course_document.id);
 });
