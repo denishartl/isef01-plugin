@@ -33,6 +33,15 @@ async function getScriptFromDocumentList(documents) {
     }
 }
 
+async function getDocumentFromLocalStorageCourses(document_title) {
+    var all_documents = JSON.parse(localStorage.getItem('course_documents'));
+    for (var i = 0; i < all_documents.length; i++) {
+        if (all_documents[i].title == document_title) {
+            return all_documents[i]
+        }
+    }
+}
+
 async function createTicket(author_id, course_id, document_id, ticket_type, description) {
     let url = 'https://iu-isef01-functionapp.azurewebsites.net/api/CreateTicket?code=Lwxj3HyBdBta0G9OjlJrpxR-uzple7iu44aXbZ2MHxPCAzFu3pwm3A=='
     let body = {
@@ -49,7 +58,7 @@ async function createTicket(author_id, course_id, document_id, ticket_type, desc
         .then(response => {return response});
 }
 
-function addOptionSelect(select_id, value) {
+async function addOptionSelect(select_id, value) {
     var option_html = '<option value="' + value + '">' + value + '</option>'
     document.getElementById(select_id).insertAdjacentHTML('beforeend', option_html)
 }
@@ -68,6 +77,8 @@ document.getElementById('course').addEventListener('change', async function () {
     var selected_course_shortname = document.getElementById('course').value;
     var course = await getCourseByShortname(selected_course_shortname);
     localStorage.setItem('course_id', course.id);
+    var course_documents = await getDocumentsByCourse(localStorage.getItem('course_id'));
+    localStorage.setItem('course_documents', JSON.stringify(course_documents));
 });
 
 document.getElementById('documenttype').addEventListener('change', async function () {
@@ -77,18 +88,21 @@ document.getElementById('documenttype').addEventListener('change', async functio
         var course_documents = await getDocumentsByCourse(localStorage.getItem('course_id'));
         for (var i = 0; i < course_documents.length; i++) {
             if ((course_documents[i].doctype).toUpperCase() == (document.getElementById('documenttype').value).toUpperCase()) {
-                addOptionSelect('title', course_documents[i].title)
+                await addOptionSelect('title', course_documents[i].title)
             }
         };
+        document.getElementById('title').dispatchEvent(new Event("change"));
     }
 });
 
 document.getElementById('title').addEventListener('change', async function () {
-    //write document to local storage
+    var course_document = await getDocumentFromLocalStorageCourses(document.getElementById('title').value);
+    localStorage.setItem('document_id', course_document.id);
 });
 
 document.getElementById('submit').addEventListener('click', async function () {
     document.getElementById('error').hidden = true;
+    document.getElementById('success').hidden = true;
     console.log(document.getElementById('description').value)
     if (document.getElementById('course').value != " ") {
         if (document.getElementById('documenttype').value != "") {
@@ -98,10 +112,15 @@ document.getElementById('submit').addEventListener('click', async function () {
                         response = await createTicket(
                             author_id = localStorage.getItem('user_id'),
                             course_id = localStorage.getItem('course_id'),
-                            document_id = // get document_id from localstorage,
+                            document_id = localStorage.getItem('document_id'),
                             ticket_type = document.getElementById('tickettype').value,
                             description = document.getElementById('description').value
                         );
+                        document.getElementById('course').value = '';
+                        document.getElementById('documenttype').value = '';
+                        document.getElementById('title').value = '';
+                        document.getElementById('tickettype').value = '';
+                        document.getElementById('description').value = '';
                         // Upload von Anhängen
                         if (response.status != 200) {
                             printError("Fehler beim erstellen der Meldung!")
@@ -145,7 +164,7 @@ async function init() {
             document.getElementById('documenttype').value = "Script";
             for (var i = 0; i < course_documents.length; i++) {
                 if ((course_documents[i].doctype).toUpperCase() == (document.getElementById('documenttype').value).toUpperCase()) {
-                    addOptionSelect('title', course_documents[i].title)
+                    await addOptionSelect('title', course_documents[i].title)
                 }
             };
 
