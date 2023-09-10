@@ -73,6 +73,11 @@ function printSuccess(message) {
     document.getElementById('success').hidden = false;
 }
 
+document.getElementById('course').addEventListener('clear', function () {
+    localStorage.removeItem('course_documents');
+    localStorage.removeItem('course_id');
+})
+
 document.getElementById('course').addEventListener('change', async function () {
     var selected_course_shortname = document.getElementById('course').value;
     var course = await getCourseByShortname(selected_course_shortname);
@@ -95,7 +100,12 @@ document.getElementById('documenttype').addEventListener('change', async functio
     }
 });
 
+document.getElementById('title').addEventListener('clear', function () {
+    localStorage.removeItem('document_id');
+})
+
 document.getElementById('title').addEventListener('change', async function () {
+
     var course_document = await getDocumentFromLocalStorageCourses(document.getElementById('title').value);
     localStorage.setItem('document_id', course_document.id);
 });
@@ -117,8 +127,10 @@ document.getElementById('submit').addEventListener('click', async function () {
                             description = document.getElementById('description').value
                         );
                         document.getElementById('course').value = '';
+                        document.getElementById('course').dispatchEvent(new Event("clear"));
                         document.getElementById('documenttype').value = '';
                         document.getElementById('title').value = '';
+                        document.getElementById('title').dispatchEvent(new Event("clear"));
                         document.getElementById('tickettype').value = '';
                         document.getElementById('description').value = '';
                         // Upload von Anhängen
