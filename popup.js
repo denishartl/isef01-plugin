@@ -165,7 +165,6 @@ document.getElementById('submit').addEventListener('click', async function () {
                         if (response_ticket.status != 200) {
                             success = -1;
                         }
-                        // Upload von Anhängen
                         if (document.getElementById("attachment").files.length > 0) {
                             response_attachment = await createAttachment(
                                 ticket_id = await response_ticket.text(),
