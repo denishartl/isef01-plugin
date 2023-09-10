@@ -18,6 +18,18 @@ async function getDocumentsByCourse(course_id) {
         .then(responseJson => { return responseJson });
 }
 
+async function createAttachment(ticket_id, filename, file_b64) {
+    let url = 'https://iu-isef01-functionapp.azurewebsites.net/api/CreateAttachment?name=' + filename + '&ticket_id=' + ticket_id;
+    let body = {
+        'file': file_b64
+    }
+    return fetch(url, {
+        method: 'POST',
+        body: JSON.stringify(body)
+    })
+        .then(response => {return response});
+}
+
 async function getAllCourses() {
     let url = 'https://iu-isef01-functionapp.azurewebsites.net/api/GetCourses';
     return fetch(url)
@@ -73,6 +85,11 @@ function printSuccess(message) {
     document.getElementById('success').hidden = false;
 }
 
+document.getElementById('course').addEventListener('clear', function () {
+    localStorage.removeItem('course_documents');
+    localStorage.removeItem('course_id');
+})
+
 document.getElementById('course').addEventListener('change', async function () {
     var selected_course_shortname = document.getElementById('course').value;
     var course = await getCourseByShortname(selected_course_shortname);
@@ -95,21 +112,42 @@ document.getElementById('documenttype').addEventListener('change', async functio
     }
 });
 
+document.getElementById('title').addEventListener('clear', function () {
+    localStorage.removeItem('document_id');
+})
+
 document.getElementById('title').addEventListener('change', async function () {
     var course_document = await getDocumentFromLocalStorageCourses(document.getElementById('title').value);
     localStorage.setItem('document_id', course_document.id);
 });
 
+document.getElementById('attachment').addEventListener('change', async function () {
+    document.getElementById('error').hidden = true;
+    const reader = new FileReader();
+    const selectedFile = document.getElementById("attachment").files[0];
+    if (selectedFile.size < 4000000) {
+        reader.readAsDataURL(selectedFile);
+        reader.onload = function(e) {
+            localStorage.setItem('attachment_name', selectedFile.name);
+            localStorage.setItem('attachment_b64', reader.result.replace(/^.+?;base64,/, ''))
+        };
+    }
+    else {
+        printError('Uploads dürfen max. 4MB groß sein!')
+    }
+    
+});
+
 document.getElementById('submit').addEventListener('click', async function () {
     document.getElementById('error').hidden = true;
     document.getElementById('success').hidden = true;
-    console.log(document.getElementById('description').value)
     if (document.getElementById('course').value != " ") {
         if (document.getElementById('documenttype').value != "") {
             if (document.getElementById('title').value != "") {
                 if (document.getElementById('tickettype').value != "") {
                     if (document.getElementById('description').value != ""){
-                        response = await createTicket(
+                        var success = 0;
+                        response_ticket = await createTicket(
                             author_id = localStorage.getItem('user_id'),
                             course_id = localStorage.getItem('course_id'),
                             document_id = localStorage.getItem('document_id'),
@@ -117,13 +155,30 @@ document.getElementById('submit').addEventListener('click', async function () {
                             description = document.getElementById('description').value
                         );
                         document.getElementById('course').value = '';
+                        document.getElementById('course').dispatchEvent(new Event("clear"));
                         document.getElementById('documenttype').value = '';
                         document.getElementById('title').value = '';
+                        document.getElementById('title').dispatchEvent(new Event("clear"));
                         document.getElementById('tickettype').value = '';
                         document.getElementById('description').value = '';
+                        if (response_ticket.status != 200) {
+                            success = -1;
+                        }
                         // Upload von Anhängen
-                        if (response.status != 200) {
-                            printError("Fehler beim erstellen der Meldung!")
+                        if (document.getElementById("attachment").files.length > 0) {
+                            response_attachment = await createAttachment(
+                                ticket_id = await response_ticket.text(),
+                                filename = localStorage.getItem('attachment_name'),
+                                file_b64 = localStorage.getItem('attachment_b64')
+                            )
+                            localStorage.removeItem('attachment_name')
+                            localStorage.removeItem('attachment_b64')
+                            if (response_attachment.status != 200) {
+                                success = -1;
+                            }
+                        }
+                        if (success != 0) {
+                            printError('Fehler beim erstellen der Meldung!')
                         }
                         else (
                             printSuccess('Meldung erfolgreich erstellt!')
