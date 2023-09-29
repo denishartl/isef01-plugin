@@ -210,7 +210,7 @@ document.getElementById('submit').addEventListener('click', async function () {
 async function init() {
     var current_url = await getCurrentTabUrl();
     var split_current_url = current_url.split('/');
-    if (split_current_url[4]) { // Still need to check if course is actually valid (in case URL is shit)
+    if (split_current_url[4]) { // Still need to check if course is actually valid (in case URL is not useful)
         var course_shortname = split_current_url[4];
         addOptionSelect('course', course_shortname);
         document.getElementById('course').dispatchEvent(new Event("change"));

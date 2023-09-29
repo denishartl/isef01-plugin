@@ -36,7 +36,7 @@ document.getElementById('passwordsubmit').addEventListener('click', async functi
         if (document.getElementById('password').value != "") {
             if (document.getElementById('password2').value != "") {
                 if (document.getElementById('password').value == document.getElementById('password2').value) {
-                    // Prüfen ob Passwort dem alten entspricht, wenn nicht zurücksetzen
+                    // Check if password is equivalent to the old one, if not reset
                     console.log(document.getElementById('password').value)
                     console.log('break')
                     console.log(user.password)
