@@ -14,7 +14,7 @@ async function updateUser(user_id, user_password) {
         method: 'POST',
         body: JSON.stringify(body)
     })
-        .then(response => {return response});
+        .then(response => { return response });
 }
 
 function printError(message) {

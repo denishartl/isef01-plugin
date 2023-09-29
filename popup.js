@@ -27,7 +27,7 @@ async function createAttachment(ticket_id, filename, file_b64) {
         method: 'POST',
         body: JSON.stringify(body)
     })
-        .then(response => {return response});
+        .then(response => { return response });
 }
 
 async function getAllCourses() {
@@ -67,7 +67,7 @@ async function createTicket(author_id, course_id, document_id, ticket_type, desc
         method: 'POST',
         body: JSON.stringify(body)
     })
-        .then(response => {return response});
+        .then(response => { return response });
 }
 
 async function addOptionSelect(select_id, value) {
@@ -128,7 +128,7 @@ document.getElementById('attachment').addEventListener('change', async function 
     const selectedFile = document.getElementById("attachment").files[0];
     if (selectedFile.size < 4000000) {
         reader.readAsDataURL(selectedFile);
-        reader.onload = function(e) {
+        reader.onload = function (e) {
             localStorage.setItem('attachment_name', selectedFile.name);
             localStorage.setItem('attachment_b64', reader.result.replace(/^.+?;base64,/, ''))
         };
@@ -136,7 +136,7 @@ document.getElementById('attachment').addEventListener('change', async function 
     else {
         printError('Uploads dürfen max. 4MB groß sein!')
     }
-    
+
 });
 
 document.getElementById('submit').addEventListener('click', async function () {
@@ -146,7 +146,7 @@ document.getElementById('submit').addEventListener('click', async function () {
         if (document.getElementById('documenttype').value != "") {
             if (document.getElementById('title').value != "") {
                 if (document.getElementById('tickettype').value != "") {
-                    if (document.getElementById('description').value != ""){
+                    if (document.getElementById('description').value != "") {
                         var success = 0;
                         response_ticket = await createTicket(
                             author_id = localStorage.getItem('user_id'),
@@ -182,7 +182,7 @@ document.getElementById('submit').addEventListener('click', async function () {
                         }
                         else (
                             printSuccess('Meldung erfolgreich erstellt!')
-                        )  
+                        )
                     }
                     else {
                         printError("Bitte Beschreibung ausfüllen!")
