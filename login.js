@@ -1,5 +1,5 @@
 async function getUser(user_id) {
-    let url = 'https://iu-isef01-functionapp.azurewebsites.net/api/getuser?user_id=' + user_id;
+    let url = 'https://iu-isef01-functionapp2.azurewebsites.net/api/getuser?user_id=' + user_id;
     return fetch(url)
         .then(response => response.json())
         .then(responseJson => { return responseJson });

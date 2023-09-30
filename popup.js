@@ -5,21 +5,21 @@ async function getCurrentTabUrl() {
 }
 
 async function getCourseByShortname(shortname) {
-    let url = 'https://iu-isef01-functionapp.azurewebsites.net/api/GetCourseByShortname?shortname=' + shortname;
+    let url = 'https://iu-isef01-functionapp2.azurewebsites.net/api/GetCourseByShortname?shortname=' + shortname;
     return fetch(url)
         .then(response => response.json())
         .then(responseJson => { return responseJson });
 }
 
 async function getDocumentsByCourse(course_id) {
-    let url = 'https://iu-isef01-functionapp.azurewebsites.net/api/GetDocumentsByCourse?course=' + course_id;
+    let url = 'https://iu-isef01-functionapp2.azurewebsites.net/api/GetDocumentsByCourse?course=' + course_id;
     return fetch(url)
         .then(response => response.json())
         .then(responseJson => { return responseJson });
 }
 
 async function createAttachment(ticket_id, filename, file_b64) {
-    let url = 'https://iu-isef01-functionapp.azurewebsites.net/api/CreateAttachment?name=' + filename + '&ticket_id=' + ticket_id;
+    let url = 'https://iu-isef01-functionapp2.azurewebsites.net/api/CreateAttachment?name=' + filename + '&ticket_id=' + ticket_id;
     let body = {
         'file': file_b64
     }
@@ -31,7 +31,7 @@ async function createAttachment(ticket_id, filename, file_b64) {
 }
 
 async function getAllCourses() {
-    let url = 'https://iu-isef01-functionapp.azurewebsites.net/api/GetCourses';
+    let url = 'https://iu-isef01-functionapp2.azurewebsites.net/api/GetCourses';
     return fetch(url)
         .then(response => response.json())
         .then(responseJson => { return responseJson });
@@ -55,7 +55,7 @@ async function getDocumentFromLocalStorageCourses(document_title) {
 }
 
 async function createTicket(author_id, course_id, document_id, ticket_type, description) {
-    let url = 'https://iu-isef01-functionapp.azurewebsites.net/api/CreateTicket'
+    let url = 'https://iu-isef01-functionapp2.azurewebsites.net/api/CreateTicket'
     let body = {
         'author_id': author_id,
         'course_id': course_id,

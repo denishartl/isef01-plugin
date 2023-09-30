@@ -1,12 +1,12 @@
 async function getUser(user_id) {
-    let url = 'https://iu-isef01-functionapp.azurewebsites.net/api/getuser?user_id=' + user_id;
+    let url = 'https://iu-isef01-functionapp2.azurewebsites.net/api/getuser?user_id=' + user_id;
     return fetch(url)
         .then(response => response.json())
         .then(responseJson => { return responseJson });
 }
 
 async function updateUser(user_id, user_password) {
-    let url = 'https://iu-isef01-functionapp.azurewebsites.net/api/UpdateUser?code=z-CHniBnOMpBM3GNeFpzNkfS-7xQB-jcJEUBHKY9KFQJAzFuw3YT5A==&user_id=' + user_id;
+    let url = 'https://iu-isef01-functionapp2.azurewebsites.net/api/UpdateUser?user_id=' + user_id;
     let body = {
         'password': user_password
     }
