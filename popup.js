@@ -140,6 +140,7 @@ document.getElementById('attachment').addEventListener('change', async function 
 });
 
 document.getElementById('submit').addEventListener('click', async function () {
+    document.getElementById("loadinggif").style.display = "block";
     document.getElementById('error').hidden = true;
     document.getElementById('success').hidden = true;
     if (document.getElementById('course').value != " ") {
@@ -204,11 +205,13 @@ document.getElementById('submit').addEventListener('click', async function () {
     else {
         printError("Bitte Kurs auswählen!")
     }
+    document.getElementById("loadinggif").style.display = "none";
 });
 
 
 
 async function init() {
+    document.getElementById("loadinggif").style.display = "block";
     var current_url = await getCurrentTabUrl();
     var split_current_url = current_url.split('/');
     if (split_current_url[4]) { // Still need to check if course is actually valid (in case URL is not useful)
@@ -233,6 +236,7 @@ async function init() {
             addOptionSelect('course', all_courses[i].shortname)
         };
     }
+    document.getElementById("loadinggif").style.display = "none";
 }
 
 init();

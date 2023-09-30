@@ -160,6 +160,16 @@ link {
 
  }
 
+ .loadinggif {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 50px;
+    width: 50px;
+}
+
 /* 5. Formulare */
 
 form {   
