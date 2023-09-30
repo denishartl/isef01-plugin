@@ -55,13 +55,14 @@ async function getDocumentFromLocalStorageCourses(document_title) {
 }
 
 async function createTicket(author_id, course_id, document_id, ticket_type, description) {
-    let url = 'https://iu-isef01-functionapp.azurewebsites.net/api/CreateTicket?code=Lwxj3HyBdBta0G9OjlJrpxR-uzple7iu44aXbZ2MHxPCAzFu3pwm3A=='
+    let url = 'https://iu-isef01-functionapp.azurewebsites.net/api/CreateTicket'
     let body = {
         'author_id': author_id,
         'course_id': course_id,
         'document_id': document_id,
         'ticket_type': ticket_type,
-        'description': description
+        'description': description,
+        'assignee': null
     }
     return fetch(url, {
         method: 'POST',
