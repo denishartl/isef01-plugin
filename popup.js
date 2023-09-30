@@ -39,7 +39,7 @@ async function getAllCourses() {
 
 async function getScriptFromDocumentList(documents) {
     for (var i = 0; i < documents.length; i++) {
-        if (documents[i].doctype == 'script') {
+        if (documents[i].doctype == 'Skript') {
             return documents[i];
         }
     }
@@ -102,7 +102,7 @@ document.getElementById('course').addEventListener('change', async function () {
 document.getElementById('documenttype').addEventListener('change', async function () {
     document.getElementById('title').innerHTML = '';
     var selected_course_name = document.getElementById('course').value;
-    if (selected_course_name != " ") { // Still need to add actions when no course is selected
+    if (selected_course_name != " ") { 
         var course_documents = await getDocumentsByCourse(localStorage.getItem('course_id'));
         for (var i = 0; i < course_documents.length; i++) {
             if ((course_documents[i].doctype).toUpperCase() == (document.getElementById('documenttype').value).toUpperCase()) {
@@ -118,7 +118,6 @@ document.getElementById('title').addEventListener('clear', function () {
 })
 
 document.getElementById('title').addEventListener('change', async function () {
-
     var course_document = await getDocumentFromLocalStorageCourses(document.getElementById('title').value);
     localStorage.setItem('document_id', course_document.id);
 });
@@ -127,7 +126,7 @@ document.getElementById('attachment').addEventListener('change', async function 
     document.getElementById('error').hidden = true;
     const reader = new FileReader();
     const selectedFile = document.getElementById("attachment").files[0];
-    if (selectedFile.size < 4000000) {
+    if (selectedFile.size < 3000000) {
         reader.readAsDataURL(selectedFile);
         reader.onload = function (e) {
             localStorage.setItem('attachment_name', selectedFile.name);
@@ -135,7 +134,7 @@ document.getElementById('attachment').addEventListener('change', async function 
         };
     }
     else {
-        printError('Uploads dürfen max. 4MB groß sein!')
+        printError('Uploads dürfen max. 3MB groß sein!')
     }
 
 });
@@ -156,6 +155,7 @@ document.getElementById('submit').addEventListener('click', async function () {
                             ticket_type = document.getElementById('tickettype').value,
                             description = document.getElementById('description').value
                         );
+                        var ticket_id = await response_ticket.text()
                         document.getElementById('course').value = '';
                         document.getElementById('course').dispatchEvent(new Event("clear"));
                         document.getElementById('documenttype').value = '';
@@ -168,7 +168,7 @@ document.getElementById('submit').addEventListener('click', async function () {
                         }
                         if (document.getElementById("attachment").files.length > 0) {
                             response_attachment = await createAttachment(
-                                ticket_id = await response_ticket.text(),
+                                ticket_id = ticket_id,
                                 filename = localStorage.getItem('attachment_name'),
                                 file_b64 = localStorage.getItem('attachment_b64')
                             )
@@ -182,7 +182,7 @@ document.getElementById('submit').addEventListener('click', async function () {
                             printError('Fehler beim erstellen der Meldung!')
                         }
                         else (
-                            printSuccess('Meldung erfolgreich erstellt!')
+                            printSuccess('Meldung ' + ticket_id + ' erfolgreich erstellt!')
                         )
                     }
                     else {
@@ -217,7 +217,7 @@ async function init() {
         document.getElementById('course').dispatchEvent(new Event("change"));
         var course_documents = await getDocumentsByCourse(localStorage.getItem('course_id'));
         if (split_current_url[5] == "books") {
-            document.getElementById('documenttype').value = "Script";
+            document.getElementById('documenttype').value = "Skript";
             for (var i = 0; i < course_documents.length; i++) {
                 if ((course_documents[i].doctype).toUpperCase() == (document.getElementById('documenttype').value).toUpperCase()) {
                     await addOptionSelect('title', course_documents[i].title)
